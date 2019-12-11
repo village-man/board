@@ -1,1 +1,125 @@
 @import "bootstrap";
+
+.eyecatch {
+  height: 900px;
+  width: 100%;
+  background-image: image-url('index/eyecatch.jpg');
+  background-size: cover;
+
+  .eyecatch-content {
+    width: 33%;
+
+    h1 {
+      font-size: 5rem;
+    }
+
+  }
+}
+
+section {
+  height: 1300px;
+
+  .index-main-content-title {
+    margin-top: 70px;
+    margin-left: 10%;
+    margin-bottom: 80px;
+    h2 {
+      font-size: 3.7vw;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .index-main-content {
+    margin-left: 22%;
+    margin-right: 22%;
+
+    .boards-wrapper {
+      border-bottom: solid 1px black;
+
+      .borads-title-wrapper {
+        display: flex;
+        h3 {
+          font-size: 20px;
+          margin-bottom: 30px;
+        }
+        .fa-ellipsis-h {
+          margin-left: 20px;
+        }
+      }
+
+
+      .boards {
+        list-style: none;
+        display: flex;
+
+        li {
+          font-size: 16px;
+          margin-right: 12px;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    .all-threads-wrapper {
+      .thread-flex {
+        display: flex;
+        h3 {
+          font-size: 20px;
+        }
+        .label {
+          padding: 3px 10px;
+          background-color: #99DAFF;
+          border-radius: 3px;
+          letter-spacing: 3px;
+        }
+        .fa-plus-square {
+          font-size: 24px;
+          color: #17AF5D;
+        }
+        .direction-right {
+        }
+      }
+
+      .all-threads {
+        .thread {
+          border: solid 2px #3F3F3F;
+          border-radius: 10px;
+          box-shadow: 10px 10px rgba(0,0,0,0.2);
+          margin-bottom: 20px;
+
+          .thread-content {
+            padding: 18px 10px;
+          }
+          .thread-title {
+            font-size: 22px;
+          }
+          .thread-author {
+            font-size: 14px;
+          }
+        }
+
+      }
+    }
+
+  .fa-ellipsis-v {
+    margin-left: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+
+  .all-threads-more {
+    display: flex;
+    .fa-clipboard {
+      font-size: 26px;
+      margin-right: 6px;
+    }
+  }
+
+  }
+}
