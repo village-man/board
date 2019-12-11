@@ -1,30 +1,72 @@
 @import "bootstrap";
 
 .eyecatch {
+  position: relative;
   height: 900px;
   width: 100%;
   background-image: image-url('index/eyecatch.jpg');
   background-size: cover;
 
   .eyecatch-content {
-    width: 33%;
+    position: absolute;
+    right: 12%;
+    top: 40%;
+    width: 476px;
 
     h1 {
-      font-size: 5rem;
+      font-size: 6rem;
+      display: inline-block;
+      margin-bottom: 16px;
+      letter-spacing: 4px;
     }
 
+    p {
+      letter-spacing: 3px;
+      line-height: 30px;
+    }
   }
+
+  // 以下、狭いブラウザのときに上書き。（レスポンシブ）
+
+  // @media (max-width: 1020px) and (min-width: 768px) {
+  //   .eyecatch.responsive {
+  //     height: 1100px;
+  //   }
+  //   .eyecatch-content {
+  //     position: absolute;
+  //     right: 0%;
+  //     top: 500px;
+  //     width: 350px;
+  //
+  //     h1 {
+  //       font-size: 4rem;
+  //       display: inline-block;
+  //       margin-bottom: 16px;
+  //       letter-spacing: 4px;
+  //     }
+  //
+  //     p {
+  //       letter-spacing: 3px;
+  //       line-height: 30px;
+  //     }
+  //   }
+  // }
 }
 
 section {
-  height: 1300px;
-
   .index-main-content-title {
+    .index-main-content-title-flex {
+      display: flex;
+      .fa-comment {
+        font-size: 70px;
+        margin-left: 24px;
+      }
+    }
     margin-top: 70px;
     margin-left: 10%;
     margin-bottom: 80px;
     h2 {
-      font-size: 3.7vw;
+      font-size: 70px;
       margin-bottom: 14px;
     }
 
@@ -68,20 +110,25 @@ section {
     .all-threads-wrapper {
       .thread-flex {
         display: flex;
+        margin-top: 100px;
+        margin-bottom: 40px;
         h3 {
           font-size: 20px;
         }
         .label {
-          padding: 3px 10px;
+          margin-left: 16px;
+          padding: 6px 14px;
           background-color: #99DAFF;
           border-radius: 3px;
           letter-spacing: 3px;
         }
         .fa-plus-square {
-          font-size: 24px;
+          margin-left: 10px;
+          font-size: 28px;
           color: #17AF5D;
         }
         .direction-right {
+          margin: 0 0 0 auto;
         }
       }
 
@@ -115,9 +162,14 @@ section {
 
   .all-threads-more {
     display: flex;
+    margin-bottom: 100px;
     .fa-clipboard {
       font-size: 26px;
       margin-right: 6px;
+    }
+    .fa-caret-square-up {
+      font-size: 30px;
+      margin: 0 0 0 auto;
     }
   }
 
