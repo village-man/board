@@ -1,0 +1,36 @@
+.boards-content-wrapper.board-index {
+  margin-left: 20%;
+  margin-right: 20%;
+
+  h3 {
+    margin-top: 100px;
+    font-size: 36px;
+  }
+
+  ul {
+    margin-top: 40px;
+    list-style: none;
+
+    li {
+      margin-bottom: 16px;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    .board-index-edit-icon.fas {
+      font-size: 18px;
+      margin-left: 16px;
+    }
+  }
+
+  .create-boards {
+    h3 {
+      margin-bottom: 50px;
+    }
+    .btn-primary {
+      margin-top: 50px;
+      margin-left: 45%;
+      margin-bottom: 100px;
+    }
+  }
+}

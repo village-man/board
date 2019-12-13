@@ -1,5 +1,8 @@
 @import "bootstrap";
 @import "index";
+@import "board-index";
+@import "board-show";
+@import "board-edit";
 
 body{
   display: flex;
@@ -30,6 +33,7 @@ body{
 main {
     flex: 1;
 }
+
 
 // .navbar-toggler-icon{
 //   color: #F3F3F3 !important;

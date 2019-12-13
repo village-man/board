@@ -1,0 +1,24 @@
+<div class="boards-content-wrapper board-index">
+  <div>
+    <h3>掲示板一覧</h3>
+    <ul class="boards-index-boards">
+      <% @boards.each do |board| %>
+      <li><%= link_to board.name, board %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="create-boards">
+    <h3>掲示板作成</h3>
+    <%= form_with model: @board, local: true do |f|%>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', id: 'board_name' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control', id: 'board_description' %>
+      </div>
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
