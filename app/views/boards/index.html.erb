@@ -9,6 +9,13 @@
   </div>
   <div class="create-boards">
     <h3>掲示板作成</h3>
+    <% if @board.errors.present? %>
+      <ul id='error_explanation'>
+        <% @board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= form_with model: @board, local: true do |f|%>
       <div class="form-group">
         <%= f.label :name %>

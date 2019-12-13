@@ -19,9 +19,19 @@ class BoardsController < ApplicationController
   end
 
   def create
-    board = Board.new(board_params)
-    board.save!
-    redirect_to boards_url, notice: "掲示板「#{board.name}」を作成しました。"
+    @board = Board.new(board_params)
+    if @board.save
+      redirect_to @board, notice: "掲示板「#{board.name}」を作成しました。"
+    else
+      @boards = Board.all
+      render :index
+    end
+  end
+
+  def destroy
+    board = Board.find(params[:id])
+    board.destroy
+    redirect_to boards_url, notice: "掲示板「#{board.name}」を削除しました。"
   end
 
   private

@@ -18,7 +18,9 @@
     <div class="boards-wrapper">
       <div class="borads-title-wrapper">
         <h3>掲示板一覧</h3>
-        <i class="fas fa-ellipsis-h"></i>
+        <%= link_to boards_path, method: :get  do %>
+          <i class="fas fa-ellipsis-h"></i>
+        <% end %>
       </div>
       <ul class="boards">
         <% @boards.each do |board| %>
