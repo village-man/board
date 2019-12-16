@@ -24,7 +24,7 @@
       </div>
       <ul class="boards">
         <% @boards.each do |board| %>
-        <li><%= board.name %></li>
+        <li><%= link_to board.name, hubs_path(id: board.id ) %></li>
         <% end %>
       </ul>
     </div>
@@ -34,45 +34,15 @@
         <h3 class="direction-right">新規スレッド作成</h3><i class="far fa-plus-square"></i>
       </div>
 
-      <div class="all-threads">
-        <div class="thread">
-          <div class="thread-content">
-            <h4 class="thread-title">サンプルタイトルサンプルタイトル</h4>
-            <h4 class="thread-author">hogehoge123</h4>
-          </div>
+    <div class="all-threads">
+      <% @hubs.each do |hub| %>
+      <div class="thread">
+        <div class="thread-content">
+          <h4 class="thread-title"><%= hub.name %></h4>
+          <h4 class="thread-author"><%= hub.author %></h4>
         </div>
-        <div class="thread">
-          <div class="thread-content">
-            <h4 class="thread-title">サンプルタイトルサンプルタイトル</h4>
-            <h4 class="thread-author">hogehoge123</h4>
-          </div>
-        </div>
-        <div class="thread">
-          <div class="thread-content">
-            <h4 class="thread-title">サンプルタイトルサンプルタイトル</h4>
-            <h4 class="thread-author">hogehoge123</h4>
-          </div>
-        </div>
-        <div class="thread">
-          <div class="thread-content">
-            <h4 class="thread-title">サンプルタイトルサンプルタイトル</h4>
-            <h4 class="thread-author">hogehoge123</h4>
-          </div>
-        </div>
-        <div class="thread">
-          <div class="thread-content">
-            <h4 class="thread-title">サンプルタイトルサンプルタイトル</h4>
-            <h4 class="thread-author">hogehoge123</h4>
-          </div>
-        </div>
-        <div class="thread">
-          <div class="thread-content">
-            <h4 class="thread-title">サンプルタイトルサンプルタイトル</h4>
-            <h4 class="thread-author">hogehoge123</h4>
-          </div>
-        </div>
-
       </div>
+      <% end %>
     </div>
     <i class="fas fa-ellipsis-v"></i>
     <div class="all-threads-more">

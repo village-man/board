@@ -1,0 +1,28 @@
+<div class="main-content-wrapper">
+  <div class="hub-index-board-title">
+    <h3><%= @board.name %></h3>
+    <p><%= @board.description %></p>
+  </div>
+
+  <div class="all-threads-wrapper">
+    <div class="thread-flex">
+      <h3>ハブ一覧<span class="label label-default"><%= @board.name %></span></h3>
+      <h3 class="direction-right">新規ハブ作成</h3><i class="far fa-plus-square"></i>
+    </div>
+    <div class="all-threads">
+      <% @hubs.each do |hub| %>
+      <div class="thread">
+        <div class="thread-content">
+          <h4 class="thread-title"><%= hub.name %></h4>
+          <h4 class="thread-author"><%= hub.author %></h4>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <i class="fas fa-ellipsis-v"></i>
+
+
+
+</div>

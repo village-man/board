@@ -107,58 +107,9 @@ section {
       }
     }
 
-    .all-threads-wrapper {
-      .thread-flex {
-        display: flex;
-        margin-top: 100px;
-        margin-bottom: 40px;
-        h3 {
-          font-size: 20px;
-        }
-        .label {
-          margin-left: 16px;
-          padding: 6px 14px;
-          background-color: #99DAFF;
-          border-radius: 3px;
-          letter-spacing: 3px;
-        }
-        .fa-plus-square {
-          margin-left: 10px;
-          font-size: 28px;
-          color: #17AF5D;
-        }
-        .direction-right {
-          margin: 0 0 0 auto;
-        }
-      }
 
-      .all-threads {
-        .thread {
-          border: solid 2px #3F3F3F;
-          border-radius: 10px;
-          box-shadow: 10px 10px rgba(0,0,0,0.2);
-          margin-bottom: 20px;
 
-          .thread-content {
-            padding: 18px 10px;
-          }
-          .thread-title {
-            font-size: 22px;
-          }
-          .thread-author {
-            font-size: 14px;
-          }
-        }
 
-      }
-    }
-
-  .fa-ellipsis-v {
-    margin-left: 50%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: 20px;
-  }
 
   .all-threads-more {
     display: flex;
