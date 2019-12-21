@@ -1,0 +1,43 @@
+<div class="main-content-wrapper sub-contents-title">
+  <div class="sub-contents-title-element">
+    <h3>メッセージの詳細</h3>
+  </div>
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <th>メッセージID</th>
+        <td><%= @message.id %></td>
+      </tr>
+      <tr>
+        <th>掲示板ID</th>
+        <td><%= @board.id %></td>
+      </tr>
+      <tr>
+        <th>掲示板名</th>
+        <td><%= @board.name %></td>
+      </tr>
+      <tr>
+        <th>ハブID</th>
+        <td><%= @message.hub.id %></td>
+      </tr>
+      <tr>
+        <th>ハブ名</th>
+        <td><%= @message.hub.name %></td>
+      </tr>
+      <tr>
+        <th>投稿時間</th>
+        <td><%= @message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+      </tr>
+      <tr>
+        <th>投稿ユーザー</th>
+        <td><%= @message.user %></td>
+      </tr>
+      <tr>
+        <th>メッセージ内容</th>
+        <td class='message-limit'><%= simple_format(h(@message.description), {}, sanitize: false, wrapper_tag: 'div') %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to '編集', edit_message_path, class: 'btn btn-primary mr-3' %>
+  <%= link_to '削除', @message, method: :delete, data: { confirm: "マジで削除するよ？"}, class: 'btn btn-danger' %>
+</div>

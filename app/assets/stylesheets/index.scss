@@ -80,49 +80,18 @@ section {
     margin-left: 22%;
     margin-right: 22%;
 
-    .boards-wrapper {
-      border-bottom: solid 1px black;
-
-      .borads-title-wrapper {
-        display: flex;
-        h3 {
-          font-size: 20px;
-          margin-bottom: 30px;
-        }
-        .fa-ellipsis-h {
-          margin-left: 20px;
-        }
-      }
-
-
-      .boards {
-        list-style: none;
-        display: flex;
-
-        li {
-          font-size: 16px;
-          margin-right: 12px;
-          letter-spacing: 2px;
-        }
-      }
-    }
-
-
-
-
-
   .all-threads-more {
     display: flex;
     margin-bottom: 100px;
+    a {
+      color: #3F3F3F;
+    }
     .fa-clipboard {
       font-size: 26px;
       margin-right: 6px;
     }
-    .fa-caret-square-up {
-      font-size: 30px;
-      margin: 0 0 0 auto;
+
     }
   }
 
-  }
 }

@@ -34,3 +34,18 @@ module RailsPortfolio
     config.active_record.default_timezone = :local
   end
 end
+
+module TimeFormatSandbox
+  class Application < Rails::Application
+    # ...
+
+    # タイムゾーンを日本時間に設定
+    config.time_zone = 'Asia/Tokyo'
+  end
+end
+
+# module RailsPortfolio
+#   class Application < Rails::Application
+#     config.autoload_paths += Dir["#{config.root}/app/validators"]
+#   end
+# end

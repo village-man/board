@@ -1,0 +1,28 @@
+<div class="main-content-wrapper sub-contents-title">
+  <div class="sub-contents-title-element">
+    <h3>ハブの詳細</h3>
+  </div>
+  <table class="table table-hover">
+    <tbody class="table-body-limit">
+      <tr>
+        <th>ID</th>
+        <td><%= @hub.id %></td>
+      </tr>
+      <tr>
+        <th>掲示板名</th>
+        <td><%= @hub.board.name %></td>
+      </tr>
+      <tr>
+        <th>ハブ名</th>
+        <td><%= @hub.name %></td>
+      </tr>
+      <tr>
+        <th>説明</th>
+        <td><%= simple_format(h(@hub.description), {}, sanitize: false, wrapper_tag: 'div') %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to '編集', edit_hub_path, class: 'btn btn-primary mr-3' %>
+  <%= link_to '削除', @hub, method: :delete, data: { confirm: "ハブ 「#{@hub.name}」 を削除しますか？"}, class: 'btn btn-danger' %>
+
+</div>

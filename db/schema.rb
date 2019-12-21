@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_150202) do
+ActiveRecord::Schema.define(version: 2019_12_19_083518) do
 
   create_table "boards", force: :cascade do |t|
     t.string "name", null: false
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 2019_12_15_150202) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "author"
+    t.text "description"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "board_id"
+    t.integer "hub_id"
+    t.text "description"
+    t.integer "parent_message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user"
+    t.index ["parent_message_id"], name: "index_messages_on_parent_message_id"
   end
 
 end

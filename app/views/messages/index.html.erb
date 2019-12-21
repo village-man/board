@@ -1,0 +1,64 @@
+<div class="main-content-wrapper">
+  <div class="message-index-title-element">
+    <div class="message-index-sub-flex1">
+      <h3><%= @hub.name %></h3>
+      <span class="label label-default"><%= @board.name %></span>
+      <%= link_to @hub, method: :get do %>
+        <i class="fas fa-ellipsis-h color-black"></i>
+      <% end %>
+    </div>
+    <div class="message-index-sub-flex2">
+      <p><%= @hub.author %></p>
+      <p>投稿  <%= @hub.created_at.strftime('%Y/%m/%d %H:%M:%S') %> </p>
+    </div>
+    <p class="message-description"><%= @hub.description %></p>
+  </div>
+
+  <div class="message-index-main">
+    <div class="message-elements-wrapper">
+      <% @messages.each_with_index do |message, i| %>
+      <div class="message-element">
+        <div class="message-element-flex-out">
+          <p class="message-no"><%= i+1 %></p>
+          <div class="message-element-in">
+            <div class="message-element-flex-in">
+              <p><%= message.user %></p>
+              <p><%= message.created_at.strftime('%Y/%m/%d %H:%M:%S')
+              %></p>
+              <%= link_to message_path(message, {board_id: message.hub.board.id}), method: :get do %>
+              <i class="fas fa-ellipsis-h color-black"></i>
+              <% end %>
+            </div>
+            <div class='message-description'><%= message.description %></div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="new-response">
+      <div class="new-response-title-wrapper">
+        <div class="new-response-title">
+          <h3>新規レス</h3><i class="far fa-comment"></i>
+        </div>
+      </div>
+      <%= form_with model: @message, local: true do |f|%>
+        <div class="form-group">
+          <%= f.label :user %>
+          <%= f.text_field :user, value: "名無しさん", class: 'form-control', id: 'message_user' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control', id: 'message_description' %>
+        </div>
+        <%= f.hidden_field :hub_id, value: @hub.id %>
+        <%= f.submit nil, class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+
+    <%= render 'render/hubs' %>
+
+
+  </div>
+</div>

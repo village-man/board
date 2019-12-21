@@ -2,10 +2,11 @@
 @import "index";
 @import "board-index";
 @import "hub-index";
+@import "message-index";
 
 body{
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   min-height: 100vh;
   color: #3F3F3F;
   // font-size: 14px
@@ -25,6 +26,9 @@ body{
 .nav-item.active .white.nav-link {
   color: #F3F3F3;
   font-size: 14px;
+  &:hover {
+    color: black;
+  }
 }
 
 // main
@@ -36,28 +40,42 @@ main {
 .main-content-wrapper {
   margin-left: 20%;
   margin-right: 20%;
-}
 
-
-.main-content-wrapper.board-show {
-  h3 {
-    margin-top: 100px;
-    margin-bottom: 30px;
+  // hubのscss
+  .hub-btn {
+    margin-top: 36px;
+    margin-left: 45%;
+    font-size: 20px;
   }
 }
 
-.main-content-wrapper.board-edit {
-  h3 {
-    margin-top: 100px;
-    margin-bottom: 30px;
+// subページでリファクタ
+
+.sub-contents-title {
+
+  .sub-contents-title-element {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    h3 {
+      font-size: 40px;
+    }
+
+    p {
+      letter-spacing: 2px;
+    }
   }
 }
+
+//
 
 .all-threads-wrapper {
   .thread-flex {
     display: flex;
     margin-top: 100px;
     margin-bottom: 40px;
+    a {
+      color: #3F3F3F;
+    }
     h3 {
       font-size: 20px;
     }
@@ -81,6 +99,7 @@ main {
 
   .all-threads {
     .thread {
+      display: flex;
       border: solid 2px #3F3F3F;
       border-radius: 10px;
       box-shadow: 10px 10px rgba(0,0,0,0.2);
@@ -95,6 +114,11 @@ main {
       .thread-author {
         font-size: 14px;
       }
+      a {
+          font-size: 24px;
+          margin: 0 0 0 auto;
+
+      }
     }
 
   }
@@ -107,6 +131,54 @@ main {
   font-size: 20px;
 }
 
+.boards-wrapper {
+
+  .borads-title-wrapper {
+    display: flex;
+    h3 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .fa-ellipsis-h {
+      margin-left: 20px;
+    }
+  }
+
+  .boards {
+    list-style: none;
+    display: flex;
+
+    li {
+      font-size: 16px;
+      margin-right: 12px;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.go-up-to-index-top {
+  margin: 0 0 0 auto;
+  .go-up-button {
+    color: #3F3F3F;
+    .fa-caret-square-up {
+      font-size: 30px;
+    }
+  }
+}
+
+.fa-ellipsis-h.color-black {
+  color: black;
+}
+
+tbody {
+  th {
+    min-width: 160px;
+  }
+  .message-limit {
+    word-break: break-all;
+  }
+}
+
 // .navbar-toggler-icon{
 //   color: #F3F3F3 !important;
 // }
@@ -117,7 +189,7 @@ footer {
   background-color: #3F3F3F;
   width: 100%;
   height: 110px;
-
+  margin-top: auto;
   position: relative;
 
   .footer-nav {

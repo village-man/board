@@ -15,23 +15,11 @@
   </div>
 
   <div class="index-main-content">
-    <div class="boards-wrapper">
-      <div class="borads-title-wrapper">
-        <h3>掲示板一覧</h3>
-        <%= link_to boards_path, method: :get  do %>
-          <i class="fas fa-ellipsis-h"></i>
-        <% end %>
-      </div>
-      <ul class="boards">
-        <% @boards.each do |board| %>
-        <li><%= link_to board.name, hubs_path(id: board.id ) %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'render/hubs' %>
     <div class="all-threads-wrapper">
       <div class="thread-flex">
-        <h3>スレッド一覧<span class="label label-default">ALL</span></h3>
-        <h3 class="direction-right">新規スレッド作成</h3><i class="far fa-plus-square"></i>
+        <h3>最新のハブ<span class="label label-default">ALL</span></h3>
+        <h3 class="direction-right"><%= link_to '新規ハブ作成', new_hub_path %></h3><i class="far fa-plus-square"></i>
       </div>
 
     <div class="all-threads">
@@ -47,8 +35,10 @@
     <i class="fas fa-ellipsis-v"></i>
     <div class="all-threads-more">
       <i class="far fa-clipboard"></i>
-      <h4>more...</h4>
-      <i class="far fa-caret-square-up"></i>
+      <h4><%= link_to 'more...', hubs_path %></h4>
+      <div class="go-up-to-index-top">
+        <a class='go-up-button' href="#index-page-top"><i class="far fa-caret-square-up"></i></a>
+      </div>
     </div>
 
 

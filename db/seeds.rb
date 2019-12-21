@@ -17,5 +17,5 @@
 
 # htmlのboardに属するハブのデータを10個作成する
 # 10.times do |no|
-#   Hub.create!(name: "サンプルタイトル#{no}", author: "hogehoge#{no}", board_id: 1)
+#   Hub.create!(name: "サンプルタイトル2#{no}", author: "hogehoge2#{no}", board_id: 2)
 # end

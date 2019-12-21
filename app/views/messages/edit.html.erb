@@ -1,0 +1,12 @@
+<div class="main-content-wrapper sub-contents-title">
+  <div class="sub-contents-title-element">
+    <h3>メッセージの編集</h3>
+  </div>
+  <%= form_with model: @message, url: message_path, local: true do |f|%>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control', id: 'message_description' %>
+    </div>
+    <%= f.submit nil, class: 'btn btn-primary' %>
+  <% end %>
+</div>

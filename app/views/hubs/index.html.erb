@@ -1,5 +1,5 @@
-<div class="main-content-wrapper">
-  <div class="hub-index-board-title">
+<div class="main-content-wrapper sub-contents-title">
+  <div class="sub-contents-title-element">
     <h3><%= @board.name %></h3>
     <p><%= @board.description %></p>
   </div>
@@ -7,22 +7,28 @@
   <div class="all-threads-wrapper">
     <div class="thread-flex">
       <h3>ハブ一覧<span class="label label-default"><%= @board.name %></span></h3>
-      <h3 class="direction-right">新規ハブ作成</h3><i class="far fa-plus-square"></i>
+      <h3 class="direction-right"><%= link_to '新規ハブ作成', new_hub_path %></h3><i class="far fa-plus-square"></i>
     </div>
+    <%= page_entries_info @hubs %>
     <div class="all-threads">
       <% @hubs.each do |hub| %>
       <div class="thread">
         <div class="thread-content">
-          <h4 class="thread-title"><%= hub.name %></h4>
+          <h4 class="thread-title">
+            <%= link_to hub.name, messages_path(hub_id: hub.id) %>
+          </h4>
           <h4 class="thread-author"><%= hub.author %></h4>
         </div>
+        <%= link_to hub, method: :get do %>
+          <i class="fas fa-ellipsis-h color-black"></i>
+        <% end %>
       </div>
       <% end %>
     </div>
+    <%= paginate @hubs %>  <!-- 追加箇所 -->
   </div>
 
-  <i class="fas fa-ellipsis-v"></i>
-
+  <%= render 'render/hubs' %>
 
 
 </div>

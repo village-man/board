@@ -1,0 +1,22 @@
+<div class="main-content-wrapper sub-contents-title">
+  <div class="sub-contents-title-element">
+    <h3>ハブの編集</h3>
+  </div>
+  <%= form_with model: @hub, url: hub_path, local: true do |f|%>
+    <div class="form-group">
+      <%= f.label :board_id %>
+      <%= f.select :board_id, [ ['HTML', 1], ['CSS', 2], ['JavaScript', 3], ['PHP', 4], ['Python', 5], ['Ruby', 6] ]%>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', id: 'hub_name' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', id: 'hub_description' %>
+    </div>
+    <%# 遷移先のURLがおかしくなる %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
+  <% end %>
+
+</div>

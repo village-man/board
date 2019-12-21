@@ -1,0 +1,17 @@
+<div class="boards-wrapper">
+  <div class="borads-title-wrapper">
+    <h3>掲示板一覧</h3>
+    <%= link_to boards_path, method: :get  do %>
+      <i class="fas fa-ellipsis-h color-black"></i>
+    <% end %>
+  </div>
+  <ul class="boards">
+    <% @boards.each do |board| %>
+    <li><%= link_to board.name, hubs_path(id: board.id ) %></li>
+    <% end %>
+
+    <div class="go-up-to-index-top">
+      <a class='go-up-button' href="#index-page-top"><i class="far fa-caret-square-up"></i></a>
+    </div>
+  </ul>
+</div>

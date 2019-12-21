@@ -1,0 +1,97 @@
+.message-index-title-element {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.message-index-sub-flex1 {
+  display: flex;
+  align-items: center;
+  h3 {
+    font-weight: bold;
+    margin: 0;
+  }
+  span {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .label {
+    margin-left: 16px;
+    padding: 6px 14px;
+    background-color: #99DAFF;
+    border-radius: 3px;
+    letter-spacing: 3px;
+  }
+  .fa-ellipsis-h {
+    margin-left: 40px;
+    color: black;
+  }
+}
+
+.message-index-sub-flex2 {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  p {
+    margin-right: 20px;
+  }
+}
+
+.message-description {
+  letter-spacing: 1px;
+  word-break: break-all;
+  margin-bottom: 16px;
+}
+
+
+.message-element {
+  border-top: 1px solid #7CA1FF;
+}
+
+.message-element-flex-out {
+  display: flex;
+  .message-no {
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px 20px;
+  }
+  .message-element-in {
+    margin-top: 15px;
+    width: 100%;
+    .message-element-flex-in {
+      display: flex;
+      p {
+        margin-right: 10px;
+      }
+      .message-description {
+        word-wrap: break-all;
+      }
+
+      a {
+        margin: 0 0 0 auto;
+      }
+    }
+
+  }
+}
+
+.new-response {
+  margin: 100px 10%;
+  .new-response-title {
+    display: flex;
+    h3 {
+      font-size: 26px;
+      margin-left: 42%;
+    }
+    .fa-comment {
+      margin-left: 6px;
+      font-size: 30px;
+      color: #17AF5D;
+    }
+  }
+
+  .btn-primary {
+    margin-top: 100px;
+    display: block;
+    margin: 60px auto 0;
+  }
+}

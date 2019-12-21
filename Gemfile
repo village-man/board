@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~>4.1.1'
 gem 'jquery-rails'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+# gem 'kaminari', '~> 0.17.0'
+gem 'kaminari-bootstrap', '~> 3.0.1'
