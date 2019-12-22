@@ -25,6 +25,10 @@
         <td><%= @message.hub.name %></td>
       </tr>
       <tr>
+        <th>ハブindex</th>
+        <td><%= @message.hub_index %></td>
+      </tr>
+      <tr>
         <th>投稿時間</th>
         <td><%= @message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
       </tr>
@@ -33,8 +37,24 @@
         <td><%= @message.user %></td>
       </tr>
       <tr>
+        <th>親メッセージID</th>
+        <td><%= @message.parent_message_id %></td>
+      </tr>
+      <tr>
         <th>メッセージ内容</th>
         <td class='message-limit'><%= simple_format(h(@message.description), {}, sanitize: false, wrapper_tag: 'div') %></td>
+      </tr>
+      <tr>
+        <th>通知設定</th>
+        <td><%= @message.mail_tag %></td>
+      </tr>
+      <tr>
+        <th>クライアントIP</th>
+        <td><%= @message.client_ip %></td>
+      </tr>
+      <tr>
+        <th>エージェント名</th>
+        <td><%= @message.agent %></td>
       </tr>
     </tbody>
   </table>

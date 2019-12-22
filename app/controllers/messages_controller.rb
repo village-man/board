@@ -2,21 +2,26 @@ class MessagesController < ApplicationController
   def index
     @boards = Board.all
     @message = Message.new
-
     @hub = Hub.find(params[:hub_id])
+
     @board = @hub.board
-    @messages = @hub.messages.order("created_at ASC")
+    @messages = @hub.messages.where(deleted_tag: nil).order("hub_index ASC")
   end
 
   def create
+    # 検証エラーをはくときに、@messageによって元々書いていた情報を描画
     @message = Message.new(message_params)
+    @message.client_ip = request.remote_ip
+    @message.agent = request.env["HTTP_USER_AGENT"]
     if @message.save
-       redirect_to messages_path(hub_id: message_params[:hub_id]), notice: "レスを作成しました。"
+      redirect_to messages_path(hub_id: message_params[:hub_id]), notice: "レスを作成しました。"
     else
-      # @messages = Hub.all.order("created_at ASC")
+      @boards = Board.all
+      @hub = Hub.find(message_params[:hub_id])
+      @board = @hub.board
+      @messages = @hub.messages.where(deleted_tag: nil).order("hub_index ASC")
       render :index
     end
-
   end
 
   def show
@@ -35,13 +40,14 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    message = Message.find(params[:id])
-    message.destroy
+    # message = Message.find(params[:id])
+    message.deleted_tag = 1
+    message.save
     redirect_to hubs_url, notice: "メッセージを削除しました。"
   end
 
   private
     def message_params
-      params.require(:message).permit(:user, :description, :hub_id, :created_at)
+      params.require(:message).permit(:user, :description, :hub_id, :created_at, :parent_message_id, :mail_tag)
     end
 end
