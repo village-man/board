@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # def current_user
   #   @current_user ||= User.find_by(id: session[:id])

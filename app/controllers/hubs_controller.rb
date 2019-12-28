@@ -50,7 +50,7 @@ class HubsController < ApplicationController
   def destroy
     hub = Hub.find(params[:id])
     hub.destroy
-    redirect_to hubs_url, notice: "ハブ「#{hub.name}」を削除しました。"
+    redirect_to '/', notice: "ハブ「#{hub.name}」を削除しました。"
   end
 
   private
