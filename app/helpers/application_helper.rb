@@ -12,4 +12,17 @@ module ApplicationHelper
     message.description.sub(/>>[0-9]+/,"")
   end
 
+  def create_select_box
+    select_array = []
+    @boards.each do |board|
+      select_array << [ board.name, board.id ]
+    end
+    select_array
+  end
+  
+  def user_admin?
+    current_user.try(:admin_flag?)
+  end
+
+
 end

@@ -12,6 +12,11 @@ body{
   // font-size: 14px
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 // header
 
 .bg-light {
@@ -33,9 +38,22 @@ body{
 
 // main
 
+// ログインイベントでトリガーして、そのときのみdisplay: noneを外すjsを書きたい
+.login-notification {
+  p {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0 auto;
+  }
+}
+
 .main-content-wrapper {
   margin-left: 20%;
   margin-right: 20%;
+
+.alert {
+  margin: 0 auto;
+}
 
   // hubのscss
   .hub-btn {
@@ -45,13 +63,18 @@ body{
   }
 }
 
+.alert-danger {
+  background-color: inherit;
+  
+}
+
 // subページでリファクタ
 
 .sub-contents-title {
 
   .sub-contents-title-element {
     margin-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     h3 {
       font-size: 40px;
     }
@@ -179,6 +202,52 @@ tbody {
 //   color: #F3F3F3 !important;
 // }
 
+// user_views
+
+.main-content-wrapper.custom-input-form.sub-contents-title {
+  background-color: #EDF4ED;
+  border-radius: 30px;
+  padding: 10px 8vw;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 250px;
+  margin-bottom: 150px;
+
+  .actions {
+    // margin: 0 auto 100px !important;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+}
+
+.links-under-form-wrapper {
+  // height: 50px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+// registration-edit
+.cancel-wrapper {
+  padding: 10px 8vw;
+  max-width: 700px;
+  margin: 0 auto;
+  // margin-top: 250px;
+  margin-bottom: 150px;
+
+  .delete-button-wrapper {
+    display: flex;
+    margin: 50px 0;
+    // align-items: center;
+    justify-content: center;
+  }
+}
+
+#text{
+  color: red;
+}
 // footer
 
 footer {

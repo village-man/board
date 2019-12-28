@@ -4,6 +4,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
+// scrollTop
+
 $(function(){
   $('a[href^="#"]').click(function(){
     var speed = 500;

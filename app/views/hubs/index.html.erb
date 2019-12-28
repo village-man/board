@@ -7,7 +7,14 @@
   <div class="all-threads-wrapper">
     <div class="thread-flex">
       <h3>ハブ一覧<span class="label label-default"><%= @board.name %></span></h3>
-      <h3 class="direction-right"><%= link_to '新規ハブ作成', new_hub_path %></h3><i class="far fa-plus-square"></i>
+      <h3 class="direction-right">
+        <% if user_signed_in? %>
+          <%= link_to '新規ハブ作成', new_hub_path %>
+        <% else %>
+          <%= link_to 'ログインしてハブ作成', new_user_session_path %>
+        <% end %>
+      </h3>
+      <i class="far fa-plus-square"></i>
     </div>
     <%= page_entries_info @hubs %>
     <div class="all-threads">
@@ -17,10 +24,12 @@
           <h4 class="thread-title">
             <%= link_to hub.name, messages_path(hub_id: hub.id) %>
           </h4>
-          <h4 class="thread-author"><%= hub.author %></h4>
+          <h4 class="thread-author">user : <%= hub.user.username %></h4>
         </div>
+        <% if user_admin? %>
         <%= link_to hub, method: :get do %>
           <i class="fas fa-ellipsis-h color-black"></i>
+        <% end %>
         <% end %>
       </div>
       <% end %>

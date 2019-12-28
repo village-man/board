@@ -1,11 +1,13 @@
 class Message < ApplicationRecord
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 400 }
   before_save :custom_create
-  has_many :messages, class_name: "Message",
-                         foreign_key: "parent_message_id"
 
   belongs_to :parent_message, class_name: "Message", optional: true
   belongs_to :hub
+  belongs_to :user
+
+  has_many :messages, class_name: "Message",
+  foreign_key: "parent_message_id"
 
   def custom_create
     self.user = "名無しさん" if self.user == ""

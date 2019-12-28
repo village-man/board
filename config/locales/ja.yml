@@ -11,9 +11,17 @@ ja:
       message: レスポンス
     attributes:
       message:
-        user: ユーザー名
+        message_user_name: ユーザー名
         description: レス
         mail_tag: 通知設定
+      user:
+        user: ユーザー
+        email: メールアドレス
+        password: パスワード
+        username: ユーザー名
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        current_password: 現在のパスワード
 
   date:
     abbr_day_names:

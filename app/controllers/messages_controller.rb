@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    # message = Message.find(params[:id])
+    message = Message.find(params[:id])
     message.deleted_tag = 1
     message.save
     redirect_to hubs_url, notice: "メッセージを削除しました。"
@@ -48,6 +48,6 @@ class MessagesController < ApplicationController
 
   private
     def message_params
-      params.require(:message).permit(:user, :description, :hub_id, :created_at, :parent_message_id, :mail_tag)
+      params.require(:message).permit(:message_user_name, :description, :hub_id, :created_at, :parent_message_id, :mail_tag, :user_id)
     end
 end

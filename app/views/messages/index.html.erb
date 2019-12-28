@@ -10,12 +10,14 @@
     <div class="message-index-sub-flex1">
       <h3><%= @hub.name %></h3>
       <span class="label label-default"><%= @board.name %></span>
+      <% if user_admin? %>
       <%= link_to @hub, method: :get do %>
         <i class="fas fa-ellipsis-h color-black"></i>
       <% end %>
+      <% end %>
     </div>
     <div class="message-index-sub-flex2">
-      <p><%= @hub.author %></p>
+      <p>user : <%= @hub.user.username %></p>
       <p>投稿  <%= @hub.created_at.strftime('%Y/%m/%d %H:%M:%S') %> </p>
     </div>
     <p class="message-description"><%= @hub.description %></p>
@@ -30,11 +32,13 @@
             <p class="message-no"><%= message.hub_index %></p>
             <div class="message-element-in">
               <div class="message-element-flex-in">
-                <p><%= message.user %></p>
+                <p><%= message.message_user_name %></p>
                 <p><%= message.created_at.strftime('%Y/%m/%d %H:%M:%S')
                   %></p>
+                  <% if user_admin? %>
                   <%= link_to message_path(message, {board_id: message.hub.board.id}), method: :get do %>
                   <i class="fas fa-ellipsis-h color-black"></i>
+                  <% end %>
                   <% end %>
                 </div>
                 <div class='message-description'>
@@ -51,15 +55,16 @@
     <div class="new-response" id="new-response-top">
       <div class="new-response-title-wrapper">
         <div class="new-response-title">
-          <h3>新規レス</h3><i class="far fa-comment"></i>
+          <h3>新規レス</h3>
+          <i class="far fa-comment"></i>
         </div>
       </div>
 
 
       <%= form_with model: @message, local: true do |f|%>
         <div class="form-group">
-          <%= f.label :user %>
-          <%= f.text_field :user, value: "名無しさん", class: 'form-control', id: 'message_user' %>
+          <%= f.label :message_user_name %>
+          <%= f.text_field :message_user_name, value: "名無しさん", class: 'form-control', id: 'message_user' %>
         </div>
         <div class="form-group">
           <%= f.label :description %>
@@ -70,7 +75,14 @@
           <%= f.label :mail_tag, class: "form-check-label" %>
         </div>
         <%= f.hidden_field :hub_id, value: @hub.id %>
-        <input type="submit" name="commit" value="投稿する" class="btn btn-primary">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <% if user_signed_in? %>
+          <input type="submit" name="commit" value="投稿する" class="btn btn-primary">
+        <% else %>
+          <div class="form-to-login-wrapper">
+            <%= link_to 'ログインして投稿', new_user_session_path, class: "form-to-login" %>
+          </div>
+        <% end %>
       <% end %>
 
     </div>

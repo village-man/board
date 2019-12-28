@@ -1,0 +1,23 @@
+<div class="main-content-wrapper sub-contents-title">
+  <div class="sub-contents-title-element">
+    <h3>My page</h3>
+    <p>今の貴方ってこんな人。</p>
+  </div>
+  <table class="table table-hover">
+    <tbody class="table-body-limit">
+      <tr>
+        <th>ユーザー名</th>
+        <td><%= current_user.username %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= current_user.email %></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="post-hubs">
+
+  </div>
+  <%= link_to "ユーザー情報の変更はこちら", edit_user_registration_path(current_user), class: 'links-under-form' %>
+
+</div>

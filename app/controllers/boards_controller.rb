@@ -21,7 +21,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     if @board.save
-      redirect_to @board, notice: "掲示板「#{board.name}」を作成しました。"
+      redirect_to @board, notice: "掲示板「#{@board.name}」を作成しました。"
     else
       @boards = Board.all
       render :index

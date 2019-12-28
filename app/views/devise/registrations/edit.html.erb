@@ -1,0 +1,56 @@
+<div class="main-content-wrapper sub-contents-title custom-input-form">
+  <div class="sub-contents-title-element">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <p>諸行無常の響あり。</p>
+    <%= render 'render/user-error' %>
+  </div>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>（<%= @minimum_password_length %> 文字以上の半角英数字）</em>
+    <% end %>
+     <br/><i>(もしパスワードを変更しない場合は空欄にしてください)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :current_password %> <br/><i>(変更を適用するために現在のパスワードを入力してください)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "変更する" %>
+  </div>
+<% end %>
+
+</div>
+
+<div class="cancel-wrapper">
+  <h3>Cancel Your Account</h3>
+  <p>気に入らなかったですか？</p>
+
+  <div class="delete-button-wrapper">
+    <%= button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete %>
+  </div>
+
+  <%= link_to "Back", :back %>
+</div>

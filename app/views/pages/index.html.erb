@@ -19,23 +19,38 @@
     <div class="all-threads-wrapper">
       <div class="thread-flex">
         <h3>最新のハブ<span class="label label-default">ALL</span></h3>
-        <h3 class="direction-right"><%= link_to '新規ハブ作成', new_hub_path %></h3><i class="far fa-plus-square"></i>
+          <h3 class="direction-right">
+            <% if user_signed_in? %>
+              <%= link_to '新規ハブ作成', new_hub_path %>
+            <% else %>
+              <%= link_to 'ログインしてハブ作成', new_user_session_path %>
+            <% end %>
+          </h3>
+          <i class="far fa-plus-square"></i>
       </div>
 
     <div class="all-threads">
       <% @hubs.each do |hub| %>
       <div class="thread">
         <div class="thread-content">
-          <h4 class="thread-title"><%= hub.name %></h4>
-          <h4 class="thread-author"><%= hub.author %></h4>
+          <h4 class="thread-title">
+            <%= link_to hub.name,messages_path(hub_id: hub.id) %>
+          </h4>
+          <h4 class="thread-author">
+            user : <%= hub.user.username %></h4>
         </div>
+        <% if user_admin? %>
+        <%= link_to hub, method: :get do %>
+          <i class="fas fa-ellipsis-h colorblack"></i>
+        <% end %>
+        <% end %>
       </div>
       <% end %>
     </div>
     <i class="fas fa-ellipsis-v"></i>
     <div class="all-threads-more">
       <i class="far fa-clipboard"></i>
-      <h4><%= link_to 'more...', hubs_path %></h4>
+      <h4><%= link_to 'more...', hubs_path(board_id: @board_all.id ) %></h4>
       <div class="go-up-to-index-top">
         <a class='go-up-button' href="#index-page-top"><i class="far fa-caret-square-up"></i></a>
       </div>

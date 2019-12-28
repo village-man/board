@@ -1,0 +1,32 @@
+<div class="main-content-wrapper custom-input-form sub-contents-title">
+  <div class="sub-contents-title-element">
+    <h3>Change Your Password</h3>
+    <p>あと少し</p>
+    <%= render 'render/user-error' %>
+  </div>
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="form-group">
+    <%= f.label :password, "新しいパスワード" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %>文字以上の半角英数字)</em><br />
+    <% end %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, "新しいパスワードの確認" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "change" %>
+  </div>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>
