@@ -75,8 +75,8 @@
           <%= f.label :mail_tag, class: "form-check-label" %>
         </div>
         <%= f.hidden_field :hub_id, value: @hub.id %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
         <% if user_signed_in? %>
+        <%= f.hidden_field :user_id, value: current_user&.id %>
           <input type="submit" name="commit" value="投稿する" class="btn btn-primary">
         <% else %>
           <div class="form-to-login-wrapper">
