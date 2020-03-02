@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
     message = Message.find(params[:id])
     message.deleted_tag = 1
     message.save
-    redirect_to hubs_url, notice: "メッセージを削除しました。"
+    redirect_to '/', notice: "メッセージを削除しました。"
   end
 
   private

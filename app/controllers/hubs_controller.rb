@@ -1,16 +1,11 @@
 class HubsController < ApplicationController
   def index
     @board_all = Board.find_by(name: 'ALL')
-    p 3333333333333333
-    p @board_all.id
-    p params[:board_id]
     if params[:board_id] == "#{@board_all.id}"
-      p 22222222222
       @boards = Board.all
       @board = @board_all
       @hubs = Hub.page(params[:page]).per(10)
     else
-      p 111111111
       @boards = Board.all
       @board = Board.find(params[:board_id])
       @hubs = @board.hubs.page(params[:page]).per(10)
