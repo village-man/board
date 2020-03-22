@@ -22,6 +22,10 @@ ja:
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
         current_password: 現在のパスワード
+      hub:
+        board_id: 掲示板名
+        name: タイトル
+        description: 説明
 
   date:
     abbr_day_names:
