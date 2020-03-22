@@ -1,6 +1,6 @@
 class Hub < ApplicationRecord
   validates :name, presence: true
-  validates :description, presence: true, length: { maximum: 400 }
+  validates :description, length: { maximum: 400 }
 
   belongs_to :board
   belongs_to :user

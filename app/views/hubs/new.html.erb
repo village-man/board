@@ -1,8 +1,16 @@
 <div class="main-content-wrapper sub-contents-title">
+
   <div class="sub-contents-title-element">
     <h3>Create New Hub</h3>
     <p>会話が始まる。貴方のテーマで。</p>
   </div>
+  <% if @hub.errors.present? %>
+    <ul id="error_explanation">
+      <% @hub.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="new-hub-form">
     <%= form_with model: @hub, local: true do |f|%>
     <div class="form-group">

@@ -7,7 +7,7 @@ class HubsController < ApplicationController
       @hubs = Hub.page(params[:page]).per(10)
     else
       @boards = Board.all
-      @board = Board.find(params[:hub][:board_id])
+      @board = Board.find(params[:board_id])
       @hubs = @board.hubs.page(params[:page]).per(10)
     end
   end
@@ -37,8 +37,8 @@ class HubsController < ApplicationController
     if @hub.save
       redirect_to hubs_path(board_id: @hub.board.id), notice: "ハブ「#{@hub.name}」を作成しました。"
     else
-      @hub = Hub.all.order("created_at ASC")
-      render :index
+      @boards = Board.where.not(name: 'ALL')
+      render :new
     end
   end
 
