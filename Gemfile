@@ -71,3 +71,9 @@ gem 'cancancan', '~> 2.0'
 # debug
 
 gem 'minitest-rails', group: :test
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+end

@@ -7,7 +7,7 @@ class HubsController < ApplicationController
       @hubs = Hub.page(params[:page]).per(10)
     else
       @boards = Board.all
-      @board = Board.find(params[:board_id])
+      @board = Board.find(params[:hub][:board_id])
       @hubs = @board.hubs.page(params[:page]).per(10)
     end
   end
