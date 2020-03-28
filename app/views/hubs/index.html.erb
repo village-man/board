@@ -24,7 +24,7 @@
           <h4 class="thread-title">
             <%= link_to hub.name, messages_path(hub_id: hub.id) %>
           </h4>
-          <h4 class="thread-author">user : <%= hub.user.username %></h4>
+          <h4 class="thread-author">user : <%= hub.user&.username %></h4>
         </div>
         <% if user_admin? %>
         <%= link_to hub, method: :get do %>

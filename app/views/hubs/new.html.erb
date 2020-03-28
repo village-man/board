@@ -15,7 +15,7 @@
     <%= form_with model: @hub, local: true do |f|%>
     <div class="form-group">
       <%= f.label :board_id %>
-      <%= f.select :board_id, create_select_box %>
+      <%= f.select :board_id, create_select_box, prompt: "掲示板を選択" %>
     </div>
     <div class="form-group">
       <%= f.label :name %>
@@ -26,7 +26,7 @@
       <%= f.text_area :description, class: 'form-control', id: 'hub_description' %>
     </div>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit nil, class: 'btn btn-primary hub-btn' %>
+    <%= f.submit nil, value: "投稿する",class: 'btn btn-primary hub-btn' %>
     <% end %>
   </div>
 </div>

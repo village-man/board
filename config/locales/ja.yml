@@ -9,8 +9,10 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       message: レスポンス
+      board: 掲示板
     attributes:
       message:
+        board_id: 掲示板
         message_user_name: ユーザー名
         description: レス
         mail_tag: 通知設定
@@ -23,9 +25,10 @@ ja:
         remember_me: 次回から自動的にログイン
         current_password: 現在のパスワード
       hub:
-        board_id: 掲示板名
+        board_id: 掲示板
         name: タイトル
         description: 説明
+
 
   date:
     abbr_day_names:

@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    # 検証エラーをはくときに、@messageによって元々書いていた情報を描画
+    # 検証エラーをはくときのために、@messageを作成。
     @message = Message.new(message_params)
     @message.client_ip = request.remote_ip
     @message.agent = request.env["HTTP_USER_AGENT"]

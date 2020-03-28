@@ -9,7 +9,7 @@
     <% end %>
     <div class="message-index-sub-flex1">
       <h3><%= @hub.name %></h3>
-      <span class="label label-default"><%= @board.name %></span>
+      <span class="label label-default"><%= @board&.name %></span>
       <% if user_admin? %>
       <%= link_to @hub, method: :get do %>
         <i class="fas fa-ellipsis-h color-black"></i>
@@ -17,7 +17,7 @@
       <% end %>
     </div>
     <div class="message-index-sub-flex2">
-      <p>user : <%= @hub.user.username %></p>
+      <p>user : <%= @hub.user&.username %></p>
       <p>投稿  <%= @hub.created_at.strftime('%Y/%m/%d %H:%M:%S') %> </p>
     </div>
     <p class="message-description"><%= @hub.description %></p>
@@ -42,8 +42,7 @@
                   <% end %>
                 </div>
                 <div class='message-description'>
-                  <%= create_link(message) %>
-                  <%= create_description_expect_link(message) %>
+                  <%== add_link_to_description(message) %>
                 </div>
               </div>
             </div>
@@ -70,10 +69,10 @@
           <%= f.label :description %>
           <%= f.text_area :description, class: 'form-control', id: 'message_description' %>
         </div>
-        <div class="form-check">
-          <%= f.check_box :mail_tag, class: "form-check-input" %>
-          <%= f.label :mail_tag, class: "form-check-label" %>
-        </div>
+<!--        <div class="form-check">-->
+          <%#= f.check_box :mail_tag, class: "form-check-input" %>
+          <%#= f.label :mail_tag, class: "form-check-label" %>
+<!--        </div>-->
         <%= f.hidden_field :hub_id, value: @hub.id %>
         <% if user_signed_in? %>
         <%= f.hidden_field :user_id, value: current_user&.id %>

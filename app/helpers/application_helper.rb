@@ -1,15 +1,10 @@
 module ApplicationHelper
 
-  def create_link(message)
-    link_object  = message.description.match(/>>[0-9]+/).to_s
-    link_to(
-      link_object,
-      "##{message.parent_message_id}"
-    )
-  end
-
-  def create_description_expect_link(message)
-    message.description.sub(/>>[0-9]+/,"")
+  def add_link_to_description(message)
+    message_except_script = message.description.gsub(/<script.*[\s\S]*\/script>/,"")
+    link_mark = message_except_script.match(/>>[0-9]+/).to_s
+    created_link = link_to(link_mark, "#{message.parent_message_id}")
+    message_except_script.sub(/>>[0-9]+/, created_link )
   end
 
   def create_select_box
