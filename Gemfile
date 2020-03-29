@@ -72,6 +72,10 @@ gem 'cancancan', '~> 2.0'
 
 gem 'minitest-rails', group: :test
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
