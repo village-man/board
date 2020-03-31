@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def add_link_to_description(message)
-    safe_message = message.description.gsub(/<script.*[\s\S]*\/script>/,"")
+    safe_message = message.description.gsub(/<.+on[a-w]+=.+>/,"不正な入力です")
     link_mark = safe_message.match(/>>[0-9]+/).to_s
     created_link = link_to(link_mark, "##{message.parent_message_id}")
     safe_message.sub(/>>[0-9]+/, created_link )
